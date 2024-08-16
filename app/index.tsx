@@ -1,18 +1,28 @@
 import { Text, View, StyleSheet } from "react-native";
 
+const produtos = [
+  {id : 1, nome: "Cola-cola", preco: 5.5},
+  {id : 2, nome: "Pepsi", preco: 5},
+  {id : 3, nome: "Fanta", preco: 5.5},
+  {id : 4, nome: "Guarana", preco: 5.5}
+];
+
 export default function Index() {
   return (
     <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: estilo.container.backgroundColor,
-      }}
+      style={
+       estilo.container
+      }
     >
-      <Text style={estilo.container}>Olá Mundo!!</Text>
+      {
+        produtos.map((p) =>(
+        <View key={p.id}>
+        <Text> {p.nome}</Text>
+        <Text> {p.preco}</Text>
+        </View>
+      ))}
     </View>
-  );
+    );
 }
 
 const estilo = StyleSheet.create({
@@ -20,9 +30,9 @@ const estilo = StyleSheet.create({
     flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#000000",
+        backgroundColor: "#FFFFFF",
   },
   text: {
-    color: "#FFFFFF",
-  },
+    color: "#000000"
+  }
 });
