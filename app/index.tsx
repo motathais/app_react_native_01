@@ -1,4 +1,5 @@
 import { Text, View, StyleSheet } from "react-native";
+import { BorderlessButton } from "react-native-gesture-handler";
 
 const produtos = [
   {id : 1, nome: "Cola-cola", preco: 5.5},
@@ -12,13 +13,14 @@ export default function Index() {
     <View
       style={
        estilo.container
+       
       }
     >
       {
         produtos.map((p) =>(
         <View key={p.id}>
-        <Text> {p.nome}</Text>
-        <Text> {p.preco}</Text>
+        <Text style={estilo.titulo}> {p.nome}</Text>
+        <Text style={estilo.text}> {p.preco}</Text>
         </View>
       ))}
     </View>
@@ -29,10 +31,17 @@ const estilo = StyleSheet.create({
   container: {
     flex: 1,
         justifyContent: "center",
-        alignItems: "center",
         backgroundColor: "#FFFFFF",
+        alignItems: "flex-start"
   },
   text: {
     color: "#000000"
+  },
+  titulo: {
+    color: "#000000",
+    fontSize: 30,
+    textAlign: "left",
+    fontWeight: "bold",
+    fontFamily: "chiller",
   }
 });
