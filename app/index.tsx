@@ -1,4 +1,5 @@
-import { Text, View, StyleSheet } from "react-native";
+import { useState } from "react";
+import { Text, View, StyleSheet, Button } from "react-native";
 import { BorderlessButton } from "react-native-gesture-handler";
 
 const produtos = [
@@ -8,7 +9,11 @@ const produtos = [
   {id : 4, nome: "Guarana", preco: 5.5}
 ];
 
+
 export default function Index() {
+
+  let [contador, setContador]= useState(0);
+
   return (
     <View
       style={
@@ -23,9 +28,18 @@ export default function Index() {
         <Text style={estilo.text}> {p.preco}</Text>
         </View>
       ))}
+
+      <Button title={`Clicado ${contador.toString()} vezes`} onPress={()=>{clicarBotao()}}>
+
+      </Button>
     </View>
     );
+
+    function clicarBotao(){
+      setContador(contador+1);
+    }
 }
+
 
 const estilo = StyleSheet.create({
   container: {
