@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Text, View, StyleSheet, Button } from "react-native";
 import { BorderlessButton } from "react-native-gesture-handler";
+import ListaProdutos from "./Componentes/Adaptadores/ListaProdutos";
 
 const produtos = [
   {id : 1, nome: "Cola-cola", preco: 5.5},
@@ -21,13 +22,7 @@ export default function Index() {
        
       }
     >
-      {
-        produtos.map((p) =>(
-        <View key={p.id}>
-        <Text style={estilo.titulo}> {p.nome}</Text>
-        <Text style={estilo.text}> {p.preco}</Text>
-        </View>
-      ))}
+      <ListaProdutos produtos={produtos}></ListaProdutos>
 
       <Button title={`Clicado ${contador.toString()} vezes`} onPress={()=>{clicarBotao()}}>
 
@@ -59,3 +54,4 @@ const estilo = StyleSheet.create({
     fontFamily: "chiller",
   }
 });
+
