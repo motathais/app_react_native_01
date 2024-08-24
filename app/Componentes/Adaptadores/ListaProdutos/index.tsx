@@ -1,10 +1,10 @@
 import { View } from "react-native";
 import  ItemProduto from "../ItemProdutos"
 
-function ListaProdutos({produtos}:{produtos:{nome:string, preco:number} []}){
+function ListaProdutos({produtos}:{produtos:{id:number, nome:string, preco:number} []}){
     return(<View>
         {produtos.map((p)=>
-        <ItemProduto produto={p}>
+        <ItemProduto produto={p} key={p.id}>
 
         </ItemProduto>)}
 
@@ -13,5 +13,5 @@ function ListaProdutos({produtos}:{produtos:{nome:string, preco:number} []}){
     )
 }
 
-export default ListaProdutos
+export default ListaProdutos;
 
